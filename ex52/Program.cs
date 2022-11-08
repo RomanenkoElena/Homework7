@@ -1,14 +1,15 @@
 ﻿// 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
-int row = new Random().Next(1, 5);
-int column = new Random().Next(1, 5);
+int row = new Random().Next(1, 10);
+int column = new Random().Next(1, 10);
 Console.WriteLine($"Размер массива {row}*{column}");
+
 int[,] matrix = new int[row, column];
-FillArray(matrix);
+matrix = FillArray(matrix);
 PrintArray(matrix);
 AverageNum(matrix);
 
-void FillArray(int[,] matrix)
+int[,] FillArray(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -17,6 +18,7 @@ void FillArray(int[,] matrix)
             matrix[i, j] = new Random().Next(1, 10);
         }
     }
+    return matrix;
 }
 
 void PrintArray(int[,] matrix)
@@ -33,16 +35,17 @@ void PrintArray(int[,] matrix)
 
 void AverageNum(int[,] matrix)
 {
+    Console.WriteLine("Среднее арифм-е каждого столбца:");
+
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
         double sum = 0;
         double result = 0;
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            sum = sum + matrix[i,j];
+            sum = sum + matrix[i, j];
         }
-        result = sum/matrix.GetLength(0);
-   // Console.Write($"Среднее арифм-е каждого столбца:|{String.Join("|", result)}|");
-    Console.WriteLine($"Среднее арифм-е каждого столбца: {Math.Round(result, 2)}");
+        result = sum / matrix.GetLength(0);
+        Console.Write($"{Math.Round(result, 2)} | ");
     }
 }

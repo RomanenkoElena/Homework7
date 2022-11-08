@@ -3,8 +3,9 @@
 int m = new Random().Next(1, 5);
 int n = new Random().Next(1, 5);
 Console.WriteLine($"Размер массива {m}*{n}");
+
 double[,] matrix = new double[m, n];
-FillArray(matrix);
+matrix = FillArray(matrix);
 PrintArray(matrix);
 
 
