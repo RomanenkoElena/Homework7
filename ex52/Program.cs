@@ -46,6 +46,6 @@ void AverageNum(int[,] matrix)
             sum = sum + matrix[i, j];
         }
         result = sum / matrix.GetLength(0);
-        Console.Write($"{Math.Round(result, 2)} | ");
+        Console.Write($"c | ");
     }
 }
